@@ -1,0 +1,50 @@
+<div class="container">
+    
+    <div class="row">
+
+        <!-- CONTENEDOR IZQUIERDA -->
+        <div class="contenido-izq col-md-7 col-xs-12">
+            <img src="../../../../assets/banner-login.png" alt="login-logo" class="img-panel sombreado"/>
+        </div>
+
+        <!-- CONTENEDOR DERECHA -->
+        <div class="contenido-der col-md-5 col-xs-12">
+            <!-- FORM LOGIN -->    
+            <mat-card class="sombreado">   
+                    
+                <mat-card-title class="card-title mt-3">Iniciar sesion</mat-card-title>
+                
+                <form [formGroup]="loginFormGrp" (ngSubmit)="onSubmitLogin()" >
+                    <p>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Usuario de acceso</mat-label>
+                            <input matInput [(ngModel)]="userName" placeholder="Ingresa el correo" type="email" formControlName="usuario">
+                            <mat-icon matSuffix>face</mat-icon>
+                            <mat-hint style="color: primary">Usuario requerido</mat-hint>                           
+                        </mat-form-field>
+                    </p>
+                    
+                    <p>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Contraseña de acceso</mat-label>
+                            <input matInput [(ngModel)]="userPassword" placeholder="Ingresa la contraseña" type="password" formControlName="clave">
+                            <mat-icon matSuffix>visibility_off</mat-icon>
+                            <mat-hint style="color: primary;">Contraseña requerida</mat-hint>
+                        </mat-form-field>
+                    </p>                       
+
+                    <p>
+                        <a routerLink="/auth/registerUser" routerLinkActive="active">¿No posees una cuenta? Registrate.</a>
+                    </p>
+
+                    <button class="btn btn-primary mt-3 mb-3 px-5" id="btn-ingreso" color="primary" type="submit" [disabled]="loginFormGrp.invalid">Ingresar</button>    
+                    
+                </form>
+            </mat-card>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer Login -->
+<app-footer></app-footer>

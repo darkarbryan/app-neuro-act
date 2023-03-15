@@ -1,0 +1,59 @@
+<div class="container">
+    
+    <div class="row">
+
+        <!-- CONTENEDOR IZQUIERDA -->
+        <div class="contenido-izq col-md-5 col-xs-12">
+            <!-- FORM REGISTER USER -->    
+            <mat-card class="sombreado">   
+                    
+                <mat-card-title class="card-title mt-3">Crear cuenta</mat-card-title>
+                
+                <form [formGroup]="registerFormGrp" (ngSubmit)="onSubmitRegisterUser()" >
+                    <p>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Nombre de usuario</mat-label>
+                            <input matInput [(ngModel)]="name" placeholder="Ingresa tu nombre" type="text" formControlName="nombre">
+                            <mat-icon matSuffix>people</mat-icon>
+                            <mat-hint style="color: primary">Nombre requerido</mat-hint>                           
+                        </mat-form-field>
+                    </p>
+
+                    <p>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Usuario de acceso</mat-label>
+                            <input matInput [(ngModel)]="userName" placeholder="Ingresa el correo" type="email" formControlName="usuario">
+                            <mat-icon matSuffix>face</mat-icon>
+                            <mat-hint style="color: primary">Usuario requerido</mat-hint>                           
+                        </mat-form-field>
+                    </p>
+                    
+                    <p>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Contraseña de acceso</mat-label>
+                            <input matInput [(ngModel)]="userPassword" placeholder="Ingresa la contraseña" type="password" formControlName="clave">
+                            <mat-icon matSuffix>visibility_off</mat-icon>
+                            <mat-hint style="color: primary;">Contraseña requerida</mat-hint>
+                        </mat-form-field>
+                    </p>                       
+
+                    <p>
+                        <a routerLink="/auth/login" routerLinkActive="active">¿Posees una cuenta? Inicia sesion.</a>
+                    </p>
+
+                    <button class="btn btn-primary mt-3 mb-3 px-5" id="btn-ingreso" color="primary" type="submit" [disabled]="registerFormGrp.invalid">Registrarse</button>    
+                    
+                </form>
+            </mat-card>
+        </div>        
+
+        <!-- CONTENEDOR DERECHA -->
+        <div class="contenido-der col-md-7 col-xs-12">
+            <img src="../../../../../assets/banner-register-user.png" alt="register-user-logo" class="img-panel sombreado"/>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer Login -->
+<app-footer></app-footer>
