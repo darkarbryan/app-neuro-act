@@ -1,1 +1,60 @@
-<p>edit-task works!</p>
+<div class="container">
+
+    <mat-card *ngIf="flagLoadTasks==false" class="sombreado card-form">
+        <h3 style="text-align: center;">
+            Sin contenido que mostrar
+        </h3>
+    </mat-card>
+
+    <mat-card *ngIf="flagLoadTasks==true" class="sombreado card-form card-left">
+        <mat-label>Seleccione el task a editar de esta lista</mat-label>
+        <mat-form-field appearance="outline" class="pt-3">
+            <mat-label>Task a editar</mat-label>
+            <mat-select [(ngModel)]="selectedTaskId" (selectionChange)="loadTaskById()">
+                <mat-option *ngFor="let item of arrayTasks" [value]="item.id">{{item.title}}</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>done</mat-icon>
+            <mat-hint style="color: primary;">Seleccion requerida</mat-hint>
+        </mat-form-field>
+        <button *ngIf="flagLoadTasksById==true" class="btn btn-primary mt-3 mb-3 px-5" id="btn-ingreso" color="primary" (click)="modifyTask()">Editar task</button>
+    </mat-card>
+
+    <mat-card *ngIf="flagLoadTasksById==true" class="sombreado card-right">
+        <mat-card-title class="card-title mt-3">{{objEditTask.title}}</mat-card-title>
+        <div class="row">
+
+            <div class="mid-card col-6">
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>Id task</mat-label>
+                    <input matInput type="text" [value]="objEditTask.id" [readonly]="true" [disabled]="true">
+                    <mat-icon matSuffix>confirmation_number</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>Descripcion task</mat-label>
+                    <input matInput type="text" [(ngModel)]="objEditTask.description" [value]="objEditTask.description">
+                    <mat-icon matSuffix>short_text</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="mid-card col-6">
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>¿Task terminado?</mat-label>
+                    <input matInput type="text" [(ngModel)]="objEditTask.done" [value]="objEditTask.done">
+                    <mat-icon matSuffix>done</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>Task creado el</mat-label>
+                    <input matInput type="text" [value]="objEditTask.createdAt" [readonly]="true" [disabled]="true">
+                    <mat-icon matSuffix>calendar_today</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>Ultima actualizacion</mat-label>
+                    <input matInput type="text" [(ngModel)]="objEditTask.updatedAt" [value]="objEditTask.updatedAt">
+                    <mat-icon matSuffix>update</mat-icon>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </mat-card>
+
+</div>

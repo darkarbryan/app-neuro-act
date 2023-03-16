@@ -10,7 +10,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -26,7 +28,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatToolbarModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatSnackBarModule
   ]
 })
 export class AngularMaterialModule { }

@@ -1,1 +1,64 @@
-<p>view-step works!</p>
+<div class="container">
+
+    <mat-card *ngIf="flagLoadTasks==false" class="sombreado card-form">
+        <h3 style="text-align: center;">
+            Sin contenido que mostrar
+        </h3>
+    </mat-card>
+
+    <mat-card *ngIf="flagLoadTasks==true" class="sombreado card-form card-left">
+        <mat-label>Seleccione el task para obtener los steps</mat-label>
+        <mat-form-field appearance="outline" class="pt-3">
+            <mat-label>Task para buscar steps</mat-label>
+            <mat-select [(ngModel)]="selectedTaskId" (selectionChange)="getStepsByTaskId()">
+                <mat-option [value]="">Seleccione una</mat-option>
+                <mat-option *ngFor="let item of arrayTasks" [value]="item._id">{{item.title}}</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>done</mat-icon>
+            <mat-hint style="color: primary;">Seleccion requerida</mat-hint>
+        </mat-form-field>
+    </mat-card>
+
+    <div class="row" *ngIf="flagLoadSteps==true">
+        <div class="col" *ngFor="let item of arraySteps">
+            <mat-card class="sombreado">
+                <mat-card-title class="card-title mt-3">{{item.title}}</mat-card-title>
+                <div class="row">
+
+                    <div class="mid-card col-6">
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Id step</mat-label>
+                            <input matInput type="text" [value]="item._id">
+                            <mat-icon matSuffix>confirmation_number</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Descripcion step</mat-label>
+                            <input matInput type="text" [value]="item.description">
+                            <mat-icon matSuffix>short_text</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <div class=" mid-card col-6">
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>¿Step terminado?</mat-label>
+                            <input matInput type="text" [value]="item.done">
+                            <mat-icon matSuffix>done</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Step creado el</mat-label>
+                            <input matInput type="text" [value]="item.createdAt">
+                            <mat-icon matSuffix>calendar_today</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="pt-3">
+                            <mat-label>Ultima actualizacion</mat-label>
+                            <input matInput type="text" [value]="item.updatedAt">
+                            <mat-icon matSuffix>update</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

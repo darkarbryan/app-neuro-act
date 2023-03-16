@@ -1,4 +1,37 @@
 <app-header></app-header>
-<app-menu-bar></app-menu-bar>
-<router-outlet></router-outlet>
+
+<div class="menu sombreado">   
+    <ol>
+        <ul (click)="showChildComponent('tasks/view-tasks')">   
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-label>View tasks</mat-label>                    
+        </ul>
+        <ul (click)="showChildComponent('tasks/edit-task')">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-label>Edit tasks</mat-label>
+        </ul>
+        <ul (click)="showChildComponent('tasks/create-task')">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-label>Create task</mat-label>
+        </ul>
+        <hr/>
+        <ul (click)="showChildComponent('steps/view-steps')">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-label>View steps</mat-label>
+        </ul>
+        <ul (click)="showChildComponent('steps/edit-step')">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-label>Edit step</mat-label>
+        </ul>
+        <ul (click)="showChildComponent('steps/create-step')">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-label>Create step</mat-label>
+        </ul>
+    </ol>    
+
+</div>
+
+<div class="container-router-outlet">
+    <router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>

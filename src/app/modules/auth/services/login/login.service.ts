@@ -45,16 +45,16 @@ export class LoginService {
   private saveDataLogin(token:string, idUser:string){
     localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("ID_USER", idUser);
-  }
+  } 
 
-  private getToken():string{
+  public getToken():string{
     if(!this.token){
       this.token = localStorage.getItem("ACCESS_TOKEN") || "";    
     }
     return this.token;
   }
 
-  private getIdUser():string{
+  public getIdUser():string{
     if(!this.idUser){
       this.idUser = localStorage.getItem("ID_USER") || "";    
     }

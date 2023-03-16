@@ -1,1 +1,42 @@
-<p>create-task works!</p>
+<div class="container">
+    <!-- FORM LOGIN -->    
+    <mat-card class="sombreado card-form">   
+                
+        <mat-card-title class="card-title mt-3">Crear task</mat-card-title>
+        
+        <form [formGroup]="createFormGrp" (ngSubmit)="onSubmitCreateTask()" >
+            <p>
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>Titulo del task</mat-label>
+                    <input matInput [(ngModel)]="titleTask" placeholder="Ingresa el titulo" type="text" formControlName="titulo">
+                    <mat-icon matSuffix>title</mat-icon>
+                    <mat-hint style="color: primary">Titulo requerido</mat-hint>                           
+                </mat-form-field>
+            </p>
+            
+            <p>
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>Descripcion del task</mat-label>
+                    <input matInput [(ngModel)]="descriptionTask" placeholder="Ingresa la descripcion" type="text" formControlName="descripcion">
+                    <mat-icon matSuffix>short_text</mat-icon>
+                    <mat-hint style="color: primary;">Descripcion opcional</mat-hint>
+                </mat-form-field>
+            </p>
+             
+            <p>
+                <mat-form-field appearance="outline" class="pt-3">
+                    <mat-label>¿Task culminado?</mat-label>
+                    <mat-select [(ngModel)]="doneTask" placeholder="Seleccione su opcion" formControlName="terminado">                        
+                        <mat-option [value]="false">No</mat-option>
+                        <mat-option [value]="true">Si</mat-option>                        
+                    </mat-select>
+                    <mat-icon matSuffix>done</mat-icon>
+                    <mat-hint style="color: primary;">Seleccion requerida</mat-hint>
+                </mat-form-field>
+            </p>           
+            
+            <button class="btn btn-primary mt-3 mb-3 px-5" id="btn-ingreso" color="primary" type="submit" [disabled]="createFormGrp.invalid">Registrar</button>    
+            
+        </form>
+    </mat-card>
+</div>

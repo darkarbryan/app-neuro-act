@@ -14,7 +14,6 @@ import { User } from '@core/models/interfaces/user';
 export class LoginComponent implements OnInit{
 
   public loginFormGrp!: FormGroup;
-  public dataUser: any; //datos de usuario obtenidos del localstorage (JSON).
 
   /* Variables para obtener valores de campos */  
   public userName:string = "";
